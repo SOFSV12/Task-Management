@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreTask;
 
-class TaskController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $tasks = TasK::all();
-        return view('index', ['tasks' => $tasks]);
+        //
     }
 
     /**
@@ -28,18 +25,9 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTask $request)
+    public function store(Request $request)
     {
-         $validated = $request->validated();
-         
-         $data = [
-            'name'     => $validated['name'],
-            'priority' => $validated['priority'],
-         ];
-
-         Task::create($data);
-
-         return redirect()->back()->with('success', 'Task created successfully!');
+        //
     }
 
     /**
