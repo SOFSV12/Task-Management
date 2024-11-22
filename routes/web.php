@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +20,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //CRUD ROUTES
-Route::get('/',   [TaskController::class, 'index']);
-Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+Route::get('/',   [TaskController::class, 'index'])->name('home');
+Route::get('/project-create',   [ProjectController::class, 'create'])->name('project.create');
+Route::get('/view-project',   [ProjectController::class, 'index'])->name('all.project');
+Route::get('/task-create', [TaskController::class, 'create'])->name('tasks.create');
+Route::get('/task-edit/{id}',   [TaskController::class, 'edit'])->name('task.edit');
+
+

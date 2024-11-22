@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tasks', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
-            $table->string('name');
-            $table->enum('priority', ['high', 'medium', 'low']);
-            $table->timestamps();
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->integer('order_position')->default(null);
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tasks');
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropColumn('order_position');
+        });
     }
 };
