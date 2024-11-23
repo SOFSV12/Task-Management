@@ -60,6 +60,12 @@
             </tr>
             @endif
             @endforeach
+            @if($projects->count() == 0)
+            <td class="py-4 px-6 text-left text-lg">
+              No Projects Available
+              <a href="{{ route('project.create') }}" class="text-blue-600 font-bold underline">Create a project</a>
+            </td>
+            @endif
           </tbody>
         </table>
       </div>

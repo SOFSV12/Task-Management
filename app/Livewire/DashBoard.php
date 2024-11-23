@@ -11,7 +11,7 @@ class DashBoard extends Component
 
     public function mount()
     {
-        $this->tasks = Task::all();
+        $this->tasks = Task::orderBy('order_position', 'asc')->get();
     }
 
     public function delete($id)
